@@ -127,7 +127,7 @@ class quicktake_image_widget extends WP_Widget {
 	 */
 
 	function enqueues( $hook ){
-		$pages = apply_filters( 'quicktake_image_widget_scripts', array( 'post-new.php', 'post.php', 'widgets.php' ) );
+		$pages = apply_filters( 'quicktake_image_widget_scripts', array( 'post-new.php', 'post.php', 'widgets.php', 'edit.php' ) );
 
 		if( !in_array( $hook, $pages ) ) {
 			return;
