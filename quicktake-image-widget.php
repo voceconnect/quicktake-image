@@ -126,14 +126,17 @@ class quicktake_image_widget extends WP_Widget {
 	 * @return void
 	 */
 
-	function enqueues(){
-		global $pagenow;
-		if ( is_admin() && 'widgets.php' == $pagenow ) {
-			wp_enqueue_script( 'thickbox' );
-			wp_enqueue_style( 'thickbox' );
-			wp_enqueue_script( 'wp-media-modal', plugins_url( '/js/wp-media-modal.js', __FILE__ ), array( 'thickbox' ) );
-			wp_enqueue_script( 'quicktake-image-widget', plugins_url( '/js/quicktake-image-widget.js', __FILE__ ), array( 'wp-media-modal' ) );
+	function enqueues( $hook ){
+		$pages = apply_filters( 'quicktake_image_widget_scripts', array( 'post-new.php', 'post.php', 'widgets.php' ) );
+
+		if( !in_array( $hook, $pages ) ) {
+			return;
 		}
+		wp_enqueue_script( 'thickbox' );
+		wp_enqueue_style( 'thickbox' );
+		wp_enqueue_script( 'wp-media-modal', plugins_url( '/js/wp-media-modal.js', __FILE__ ), array( 'thickbox' ) );
+		wp_enqueue_script( 'quicktake-image-widget', plugins_url( '/js/quicktake-image-widget.js', __FILE__ ), array( 'wp-media-modal' ) );
+	
 	}
 	
 } 
