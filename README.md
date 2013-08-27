@@ -1,7 +1,8 @@
 Quicktake Image Widget
 ==================
 
-Contributors: matstars, voceplatforms
+
+Contributors: matstars, voceplatforms<br />
 Tags: post, meta, widgets, widget area  
 Requires at least: 3.3
 Tested up to: 3.6  
